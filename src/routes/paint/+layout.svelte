@@ -33,6 +33,8 @@
 	});
 
 	async function createPainting() {
+		g.painting = undefined;
+
 		const painting = await roomy.create(Painting);
 		painting.commit();
 

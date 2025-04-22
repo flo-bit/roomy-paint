@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+@source "../node_modules/fuchs";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {

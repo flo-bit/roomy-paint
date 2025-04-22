@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { roomy } from '$lib/roomy.svelte';
 	import { Painting } from '$lib/components';
-	import { Button } from '$lib/button';
+	import { Button } from 'fuchs';
 
 	async function createPainting() {
 		const painting = await roomy.create(Painting);

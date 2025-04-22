@@ -1,4 +1,4 @@
-import { EntityId, type EntityIdStr, Roomy } from '@roomy-chat/sdk';
+import { EntityId, Roomy, type EntityIdStr } from '$lib/roomy';
 import { StorageManager } from '@muni-town/leaf/storage';
 import { SveltePeer } from '@muni-town/leaf/svelte';
 import { indexedDBStorageAdapter } from '@muni-town/leaf/storage/indexed-db';
@@ -11,7 +11,12 @@ if (!savedCatalogId) localStorage.setItem('catalogId', catalogId.toString());
 
 const peer = new SveltePeer(
 	new StorageManager(indexedDBStorageAdapter('mini-paint')),
-	await webSocketSyncer(new WebSocket('ws://localhost:8095'))
+	await webSocketSyncer(
+		new WebSocket('wss://demo.sync.muni.town/sync/as/did:plc:xv2x4dimpe3zukzuynblaiyt', [
+			'authorization',
+			'demodevtoken'
+		])
+	)
 );
 export const roomy = await Roomy.init(peer, catalogId);
 

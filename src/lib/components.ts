@@ -6,39 +6,47 @@ import {
 	LoroMovableList,
 	NamedEntity,
 	type EntityIdStr
-} from '@roomy-chat/sdk';
+} from './roomy';
 
 export const DrawnPointComponent = defComponent(
 	'name:01JPEBV8TJ8YCXYYD256NJSR5X',
-	LoroMap<{ x: number; y: number; color: string }>
+	LoroMap<{ x: number; y: number; r: number; g: number; b: number }>
 );
 
 export class DrawnPoint extends EntityWrapper {
 	get x() {
-		const entity = this.entity.getOrInit(DrawnPointComponent);
-		return entity.get('x');
+		return this.entity.getOrInit(DrawnPointComponent, (entity) => entity.get('x'));
 	}
 	set x(value: number) {
-		const entity = this.entity.getOrInit(DrawnPointComponent);
-		entity.set('x', value);
+		this.entity.getOrInit(DrawnPointComponent, (entity) => entity.set('x', value));
 	}
 
 	get y() {
-		const entity = this.entity.getOrInit(DrawnPointComponent);
-		return entity.get('y');
+		return this.entity.getOrInit(DrawnPointComponent, (entity) => entity.get('y'));
 	}
 	set y(value: number) {
-		const entity = this.entity.getOrInit(DrawnPointComponent);
-		entity.set('y', value);
+		this.entity.getOrInit(DrawnPointComponent, (entity) => entity.set('y', value));
 	}
 
-	get color() {
-		const entity = this.entity.getOrInit(DrawnPointComponent);
-		return entity.get('color');
+	get r() {
+		return this.entity.getOrInit(DrawnPointComponent, (entity) => entity.get('r'));
 	}
-	set color(value: string) {
-		const entity = this.entity.getOrInit(DrawnPointComponent);
-		entity.set('color', value);
+	set r(value: number) {
+		this.entity.getOrInit(DrawnPointComponent, (entity) => entity.set('r', value));
+	}
+
+	get g() {
+		return this.entity.getOrInit(DrawnPointComponent, (entity) => entity.get('g'));
+	}
+	set g(value: number) {
+		this.entity.getOrInit(DrawnPointComponent, (entity) => entity.set('g', value));
+	}
+
+	get b() {
+		return this.entity.getOrInit(DrawnPointComponent, (entity) => entity.get('b'));
+	}
+	set b(value: number) {
+		this.entity.getOrInit(DrawnPointComponent, (entity) => entity.set('b', value));
 	}
 }
 

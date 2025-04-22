@@ -3,7 +3,7 @@
 	import { page } from '$app/state';
 	import { roomy, g } from '$lib/roomy.svelte';
 	import { Painting } from '$lib/components';
-	import { type EntityIdStr } from '@roomy-chat/sdk';
+	import { type EntityIdStr } from '$lib/roomy';
 
 	let { children } = $props();
 

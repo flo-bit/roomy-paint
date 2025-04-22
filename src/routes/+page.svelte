@@ -3,12 +3,13 @@
 	import { roomy } from '$lib/roomy.svelte';
 	import { Painting } from '$lib/components';
 	import { Button } from 'fuchs';
+	import { base } from '$app/paths';
 
 	async function createPainting() {
 		const painting = await roomy.create(Painting);
 		painting.commit();
 
-		goto(`/paint/${painting.id}`);
+		goto(base + `/paint?id=${painting.id}`);
 	}
 </script>
 
